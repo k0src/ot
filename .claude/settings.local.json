@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(docker --version)",
+      "Bash(git init *)",
+      "Bash(mkdir -p .husky .github/workflows infra docs/architecture backend/prisma backend/src/routes backend/src/services backend/src/middleware backend/src/db backend/src/integrations backend/src/ai/jobs backend/src/ai/schemas backend/src/ai/prompts backend/src/ai/retrieval backend/src/config backend/src/telemetry backend/src/types backend/src/utils frontend/src/components frontend/src/pages frontend/src/hooks frontend/src/contexts frontend/src/lib frontend/src/api frontend/src/store frontend/src/auth frontend/src/types frontend/src/styles)"
+    ]
+  }
+}

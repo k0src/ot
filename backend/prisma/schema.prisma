@@ -1,0 +1,12 @@
+// OTI workspace Prisma schema.
+// Scaffold only: datasource + generator blocks. No models yet — the data model
+// is added in a later task.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}

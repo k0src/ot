@@ -1,0 +1,46 @@
+# Local development stack for the OTI workspace.
+# Three services: frontend (Vite), backend (tsx watch), db (Azure SQL Edge).
+# The SA password here is a DEV-ONLY value, not a real secret.
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/prisma:/app/prisma
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DATABASE_URL=sqlserver://db:1433;database=oti;user=sa;password=Your_dev_password123;encrypt=true;trustServerCertificate=true
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=Your_dev_password123
+    volumes:
+      - oti-db-data:/var/opt/mssql
+
+volumes:
+  oti-db-data:

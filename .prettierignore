@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+coverage/
+.husky/
+backend/prisma/generated/
+**/.prisma/
+*.tsbuildinfo
+package-lock.json

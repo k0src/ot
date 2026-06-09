@@ -1,0 +1,14 @@
+# Frontend development image — Vite dev server.
+# (No production Dockerfile: the frontend deploys as static assets to Azure SWA.)
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev", "--", "--host"]

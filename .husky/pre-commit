@@ -1,0 +1,8 @@
+npx lint-staged
+
+# Secret scanning: block commits that contain secrets.
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --redact --config .gitleaks.toml
+else
+  echo "⚠️  gitleaks not found on PATH — skipping secret scan. Install: https://github.com/gitleaks/gitleaks"
+fi

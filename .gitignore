@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Environment files (never commit real env values)
+.env
+.env.local
+.env.*
+!.env.example
+
+# Prisma generated client
+backend/prisma/generated/
+**/.prisma/
+backend/src/generated/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Vite
+frontend/.vite/
+
+# Docker
+*.local

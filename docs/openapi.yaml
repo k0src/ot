@@ -1,0 +1,10 @@
+openapi: 3.1.0
+info:
+  title: OTI Workspace API
+  version: 0.1.0
+  description: >-
+    Stub OpenAPI document. Paths and schemas will be added as the backend API
+    is implemented in later tasks.
+paths: {}
+components:
+  schemas: {}
