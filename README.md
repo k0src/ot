@@ -1,19 +1,3 @@
-# OT Innovation (OTI) Trial Evidence & Readiness Workspace
-
-## Overview
-
-Internal web application for the OT Innovation department. It is the single
-structured workspace for trial evidence and gate artifacts across the OTI
-stage-gated pipeline (G0 → G3), centered on the ORCS readiness framework at
-gate G1.5. Evidence is captured once as structured data and reused everywhere,
-augmented by AI (which drafts and flags but never decides).
-
-System-of-record boundaries: Azure DevOps owns delivery work (read-only here),
-GitHub owns source, and this app owns trial evidence and gate artifacts only.
-
-> This repository is currently a scaffold. No application features are
-> implemented yet.
-
 ## Prerequisites
 
 - Node.js 20+
