@@ -19,9 +19,9 @@ export default tseslint.config(
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  // CommonJS config files (e.g. backend/jest.config.js) — Node/CommonJS globals.
+  // CommonJS files (*.cjs) — provide Node/CommonJS globals.
   {
-    files: ["**/*.cjs", "backend/**/*.js"],
+    files: ["**/*.cjs"],
     languageOptions: {
       sourceType: "commonjs",
       globals: {

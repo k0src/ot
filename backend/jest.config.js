@@ -1,13 +1,17 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-module.exports = {
-  preset: "ts-jest",
+export default {
+  // ESM preset: backend is "type": "module", so tests run as ES modules.
+  // Run via `cross-env NODE_OPTIONS=--experimental-vm-modules jest` (see package.json).
+  preset: "ts-jest/presets/default-esm",
   testEnvironment: "node",
   roots: ["<rootDir>/src"],
   testMatch: ["**/*.test.ts", "**/*.spec.ts"],
   // Scaffold has no tests yet; don't fail the run/CI until tests are added.
   passWithNoTests: true,
-  // Keep path aliases in sync with tsconfig.json "paths".
   moduleNameMapper: {
+    // Allow ESM-style ".js" import specifiers to resolve to ".ts" sources.
+    "^(\\.{1,2}/.*)\\.js$": "$1",
+    // Keep path aliases in sync with tsconfig.json "paths".
     "^@middleware$": "<rootDir>/src/middleware/index",
     "^@middleware/(.*)$": "<rootDir>/src/middleware/$1",
     "^@services$": "<rootDir>/src/services/index",
