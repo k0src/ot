@@ -1,5 +1,4 @@
-# Frontend development image — Vite dev server.
-# (No production Dockerfile: the frontend deploys as static assets to Azure SWA.)
+# Frontend development image
 FROM node:20-alpine
 
 WORKDIR /app
