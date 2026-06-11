@@ -1,15 +1,13 @@
-# Backend development image — hot reload via tsx watch.
+# Backend development image
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies first for better layer caching.
 COPY package.json ./
 RUN npm install
 
 COPY . .
 
-# Generate the Prisma client (no-op models for now, but keeps parity with prod).
 RUN npx prisma generate
 
 EXPOSE 3000

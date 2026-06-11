@@ -1,18 +1,15 @@
-# Gitleaks configuration for the OTI workspace.
-# Extends the default ruleset; add allowlists for known non-secret placeholders.
 title = "OTI Workspace gitleaks config"
 
 [extend]
 useDefault = true
 
 [allowlist]
-description = "Allow non-secret example placeholders and generated artifacts."
 paths = [
   '''\.env\.example$''',
   '''package-lock\.json$''',
 ]
 regexes = [
-  # Dev-only SA password used in docker-compose / .env.example (not a real secret).
-  '''Your_dev_password123''',
+  # placeholders
+  '''dev-password123''',
   '''00000000-0000-0000-0000-000000000000''',
 ]

@@ -1,6 +1,6 @@
 {
-  "name": "@oti/backend",
-  "version": "0.1.0",
+  "name": "@oti-workspace/backend",
+  "version": "0.0.1",
   "private": true,
   "description": "OTI workspace backend — Node.js, Express, Prisma, TypeScript",
   "license": "UNLICENSED",

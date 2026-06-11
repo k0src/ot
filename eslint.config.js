@@ -1,11 +1,11 @@
 // @ts-check
-// Root ESLint flat config applied across both workspaces (frontend + backend).
+import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import reactHooks from "eslint-plugin-react-hooks";
 import prettier from "eslint-config-prettier";
 
-export default tseslint.config(
+export default defineConfig([
   {
     ignores: [
       "**/node_modules/**",
@@ -17,11 +17,13 @@ export default tseslint.config(
       "**/.prisma/**",
     ],
   },
+
   js.configs.recommended,
+
   ...tseslint.configs.recommended,
-  // CommonJS files (*.cjs) — provide Node/CommonJS globals.
+
   {
-    files: ["**/*.cjs"],
+    files: ["**/*.cjs", "backend/**/*.js"],
     languageOptions: {
       sourceType: "commonjs",
       globals: {
@@ -35,16 +37,11 @@ export default tseslint.config(
       },
     },
   },
-  // Frontend-specific: React hooks rules
+
   {
     files: ["frontend/**/*.{ts,tsx}"],
-    plugins: {
-      "react-hooks": reactHooks,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-    },
+    ...reactHooks.configs.flat.recommended,
   },
-  // Keep Prettier last so it disables conflicting stylistic rules.
+
   prettier,
-);
+]);

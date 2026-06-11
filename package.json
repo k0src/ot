@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "OT Innovation (OTI) Trial Evidence & Readiness Workspace — monorepo root",
-  "license": "UNLICENSED",
+  "description": "OT Innovation Trial Evidence & Readiness Workspace",
   "engines": {
     "node": ">=20"
   },

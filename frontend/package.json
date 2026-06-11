@@ -1,9 +1,7 @@
 {
-  "name": "@oti/frontend",
-  "version": "0.1.0",
+  "name": "@oti-workspace/frontend",
+  "version": "0.0.1",
   "private": true,
-  "description": "OTI workspace frontend — React, TypeScript, Vite, Fluent UI",
-  "license": "UNLICENSED",
   "type": "module",
   "engines": {
     "node": ">=20"

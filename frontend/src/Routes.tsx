@@ -6,7 +6,6 @@ export default function AppRoutes() {
   return (
     <Routes>
       {/* <Route path="/login" element={<Pages.LoginPage />} /> */}
-      {/* protected routes, layouts, initiative sub-routes added in later tasks */}
       <Route path="*" element={null} />
     </Routes>
   );
