@@ -1,8 +1,6 @@
 import { memo, useCallback, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { ShellBtn } from "@components";
+import { ShellBtn, HeaderBreadcrumbs } from "@components";
 import {
-  ChevronRightRegular,
   LayoutColumnOneThirdLeftRegular,
   LayoutColumnOneThirdLeftFilled,
   LayoutColumnOneThirdRightRegular,
@@ -37,13 +35,7 @@ const Header: React.FC = () => {
           active={navPanelOpen}
         />
         <div className={styles.headerSeparator} />
-        <div className={styles.breadcrumbsContainer}>
-          <NavLink to="/initatives" className={styles.breadcrumb}>
-            Initiatives
-          </NavLink>
-          <ChevronRightRegular className={styles.breadcrumbChevron} />
-          <span className={styles.breadcrumbMain}>Initiative Name</span>
-        </div>
+        <HeaderBreadcrumbs />
       </div>
 
       <div className={styles.headerRight}>
