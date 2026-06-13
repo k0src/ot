@@ -1,5 +1,6 @@
-import { memo } from "react";
+import { memo, useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ShellBtn } from "@components";
 import {
   ChevronRightRegular,
   LayoutColumnOneThirdLeftRegular,
@@ -12,13 +13,29 @@ import {
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
+  const [navPanelOpen, setNavPanelOpen] = useState(true);
+  const [detailsPanelOpen, setDetailsPanelOpen] = useState(false);
+
+  const toggleNavPanel = useCallback(
+    () => setNavPanelOpen((prev) => !prev),
+    [],
+  );
+  const toggleDetailsPanel = useCallback(
+    () => setDetailsPanelOpen((prev) => !prev),
+    [],
+  );
+  const handleCopyLink = useCallback(() => {}, []);
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerLeft}>
-        <button className={styles.headerBtn}>
-          <LayoutColumnOneThirdLeftRegular className={styles.iconRegular} />
-          <LayoutColumnOneThirdLeftFilled className={styles.iconActive} />
-        </button>
+        <ShellBtn
+          ariaLabel="Toggle navigation panel"
+          IconRegular={LayoutColumnOneThirdLeftRegular}
+          IconActive={LayoutColumnOneThirdLeftFilled}
+          onClick={toggleNavPanel}
+          active={navPanelOpen}
+        />
         <div className={styles.headerSeparator} />
         <div className={styles.breadcrumbsContainer}>
           <NavLink to="/initatives" className={styles.breadcrumb}>
@@ -30,15 +47,20 @@ const Header: React.FC = () => {
       </div>
 
       <div className={styles.headerRight}>
-        <button className={styles.headerBtn}>
-          <LinkSquareRegular className={styles.iconRegular} />
-          <LinkSquareFilled className={styles.iconActive} />
-        </button>
+        <ShellBtn
+          ariaLabel="Copy link"
+          IconRegular={LinkSquareRegular}
+          IconActive={LinkSquareFilled}
+          onClick={handleCopyLink}
+        />
         <div className={styles.headerSeparator} />
-        <button className={styles.headerBtn}>
-          <LayoutColumnOneThirdRightRegular className={styles.iconRegular} />
-          <LayoutColumnOneThirdRightFilled className={styles.iconActive} />
-        </button>
+        <ShellBtn
+          ariaLabel="Toggle details panel"
+          IconRegular={LayoutColumnOneThirdRightRegular}
+          IconActive={LayoutColumnOneThirdRightFilled}
+          onClick={toggleDetailsPanel}
+          active={detailsPanelOpen}
+        />
       </div>
     </header>
   );

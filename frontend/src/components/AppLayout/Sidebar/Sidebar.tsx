@@ -1,6 +1,6 @@
-import { memo, useMemo } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { SidebarGateBadge, SidebarSearchBar } from "@components";
+import { ShellBtn, SidebarGateBadge, SidebarSearchBar } from "@components";
 import classNames from "classnames";
 import {
   AddRegular,
@@ -71,6 +71,9 @@ const Sidebar: React.FC = () => {
     [],
   );
 
+  const handleNewInitiative = useCallback(() => {}, []);
+  const handleNotifications = useCallback(() => {}, []);
+
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarTop}>
@@ -86,10 +89,12 @@ const Sidebar: React.FC = () => {
               <span className={styles.sidebarSubtitle}>Company</span>
             </div>
           </div>
-          <button className={styles.sidebarBtn}>
-            <AddRegular className={styles.iconRegular} />
-            <AddRegular className={styles.iconActive} />
-          </button>
+          <ShellBtn
+            ariaLabel="New initiative"
+            IconRegular={AddRegular}
+            IconActive={AddRegular}
+            onClick={handleNewInitiative}
+          />
         </div>
 
         <div className={styles.sidebarNavContainer}>
@@ -274,10 +279,12 @@ const Sidebar: React.FC = () => {
               <span className={styles.sidebarUserEmail}>user@example.com</span>
             </div>
           </button>
-          <button className={styles.sidebarBtn}>
-            <MailInboxRegular className={styles.iconRegular} />
-            <MailInboxFilled className={styles.iconActive} />
-          </button>
+          <ShellBtn
+            ariaLabel="Notifications"
+            IconRegular={MailInboxRegular}
+            IconActive={MailInboxFilled}
+            onClick={handleNotifications}
+          />
         </div>
       </div>
     </div>

@@ -1,0 +1,39 @@
+.shellBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-xl);
+  height: var(--size-xl);
+  background: none;
+  border: none;
+  flex-shrink: 0;
+  font-size: var(--icon-size-lg);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  color: var(--color-gray-700);
+  transition: background-color var(--transition);
+}
+
+.shellBtn:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+.shellBtn:hover:not(:disabled):not(.btnActive),
+.shellBtn.btnActive {
+  background-color: var(--color-cool-gray-50);
+}
+
+.shellBtn:hover:not(:disabled):not(.btnActive) .iconRegular,
+.shellBtn.btnActive .iconRegular {
+  display: none !important;
+}
+
+.shellBtn:hover:not(:disabled):not(.btnActive) .iconActive,
+.shellBtn.btnActive .iconActive {
+  display: block !important;
+}
+
+.iconActive {
+  display: none !important;
+}

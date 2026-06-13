@@ -5,3 +5,4 @@ export { default as Header } from "./AppLayout/Header/Header.js";
 
 export { default as SidebarGateBadge } from "./AppLayout/SidebarGateBadge/SidebarGateBadge.js";
 export { default as SidebarSearchBar } from "./AppLayout/SidebarSearchBar/SidebarSearchBar.js";
+export { default as ShellBtn } from "./AppLayout/ShellBtn/ShellBtn.js";

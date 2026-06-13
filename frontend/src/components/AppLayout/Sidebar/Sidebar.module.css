@@ -73,31 +73,6 @@
   text-overflow: ellipsis;
 }
 
-.sidebarBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  flex-shrink: 0;
-  border: none;
-  border-radius: var(--border-radius-md);
-  width: var(--size-xl);
-  height: var(--size-xl);
-  cursor: pointer;
-  color: var(--color-gray-700);
-  font-size: var(--icon-size-lg);
-  transition: background-color var(--transition);
-}
-
-.sidebarBtn:hover:not(:disabled) {
-  background-color: var(--color-cool-gray-50);
-}
-
-.sidebarBtn:disabled {
-  opacity: var(--opacity-disabled);
-  cursor: not-allowed;
-}
-
 .sidebarNavContainer {
   display: flex;
   flex-direction: column;
@@ -199,14 +174,6 @@
 
 .sidebarNavLink:hover .iconActive,
 .sidebarNavLinkActive .iconActive {
-  display: block !important;
-}
-
-.sidebarBtn:hover .iconRegular {
-  display: none !important;
-}
-
-.sidebarBtn:hover .iconActive {
   display: block !important;
 }
 
