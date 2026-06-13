@@ -1,6 +1,7 @@
 import { memo, useCallback, useMemo } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ShellBtn, SidebarGateBadge, SidebarSearchBar } from "@components";
+import { ShellBtn, GateBadgeRadial, SidebarSearchBar } from "@components";
+import { useSidebar } from "@contexts";
 import classNames from "classnames";
 import {
   AddRegular,
@@ -23,13 +24,15 @@ import {
   SettingsFilled,
   MailInboxFilled,
   MoreHorizontalRegular,
-  ArrowUpRightRegular,
+  EditRegular,
 } from "@fluentui/react-icons";
 import styles from "./Sidebar.module.css";
 import Logo from "@assets/logo-square-500.png";
 import UserPlaceholder from "@assets/user-placeholder.png";
 
 const Sidebar: React.FC = () => {
+  const { collapsed } = useSidebar();
+
   const navItems = useMemo(
     () => [
       {
@@ -76,7 +79,11 @@ const Sidebar: React.FC = () => {
   const handleNotifications = useCallback(() => {}, []);
 
   return (
-    <div className={styles.sidebarContainer}>
+    <div
+      className={classNames(styles.sidebarContainer, {
+        [styles.collapsed]: collapsed,
+      })}
+    >
       <div className={styles.sidebarTop}>
         <div className={styles.sidebarHeader}>
           <div className={styles.sidebarLogoContainer}>
@@ -90,12 +97,14 @@ const Sidebar: React.FC = () => {
               <span className={styles.sidebarSubtitle}>Company</span>
             </div>
           </div>
-          <ShellBtn
-            ariaLabel="New initiative"
-            IconRegular={AddRegular}
-            IconActive={AddRegular}
-            onClick={handleNewInitiative}
-          />
+          {!collapsed && (
+            <ShellBtn
+              ariaLabel="New initiative"
+              IconRegular={AddRegular}
+              IconActive={AddRegular}
+              onClick={handleNewInitiative}
+            />
+          )}
         </div>
 
         <div className={styles.sidebarNavContainer}>
@@ -165,13 +174,13 @@ const Sidebar: React.FC = () => {
                 }
               >
                 <div className={styles.sidebarNavItem}>
-                  <SidebarGateBadge gate={"g0"} />
+                  <GateBadgeRadial gate={"g0"} />
                   <span className={styles.sidebarListItemText}>
                     Initiative Name
                   </span>
                 </div>
-                <button className={styles.sidebarListMoreBtn}>
-                  <MoreHorizontalRegular />
+                <button className={styles.sidebarListEditBtn}>
+                  <EditRegular />
                 </button>
               </NavLink>
               <NavLink
@@ -181,13 +190,13 @@ const Sidebar: React.FC = () => {
                 }
               >
                 <div className={styles.sidebarNavItem}>
-                  <SidebarGateBadge gate={"g1.5"} />
+                  <GateBadgeRadial gate={"g1.5"} />
                   <span className={styles.sidebarListItemText}>
                     Initiative Name
                   </span>
                 </div>
-                <button className={styles.sidebarListMoreBtn}>
-                  <MoreHorizontalRegular />
+                <button className={styles.sidebarListEditBtn}>
+                  <EditRegular />
                 </button>
               </NavLink>
               <NavLink
@@ -197,13 +206,13 @@ const Sidebar: React.FC = () => {
                 }
               >
                 <div className={styles.sidebarNavItem}>
-                  <SidebarGateBadge gate={"g2"} />
+                  <GateBadgeRadial gate={"g2"} />
                   <span className={styles.sidebarListItemText}>
                     Initiative Name
                   </span>
                 </div>
-                <button className={styles.sidebarListMoreBtn}>
-                  <MoreHorizontalRegular />
+                <button className={styles.sidebarListEditBtn}>
+                  <EditRegular />
                 </button>
               </NavLink>
               <NavLink
@@ -213,21 +222,21 @@ const Sidebar: React.FC = () => {
                 }
               >
                 <div className={styles.sidebarNavItem}>
-                  <SidebarGateBadge gate={"g3"} />
+                  <GateBadgeRadial gate={"g3"} />
                   <span className={styles.sidebarListItemText}>
                     Initiative Name
                   </span>
                 </div>
-                <button className={styles.sidebarListMoreBtn}>
-                  <MoreHorizontalRegular />
+                <button className={styles.sidebarListEditBtn}>
+                  <EditRegular />
                 </button>
               </NavLink>
               <Link
                 to="/initiatives?filter=mine"
                 className={styles.sidebarLink}
               >
+                <MoreHorizontalRegular className={styles.sidebarLinkIcon} />
                 <span className={styles.sidebarLinkText}>View more</span>
-                <ArrowUpRightRegular className={styles.sidebarLinkIcon} />
               </Link>
             </div>
           </div>
@@ -271,12 +280,14 @@ const Sidebar: React.FC = () => {
               <span className={styles.sidebarUserEmail}>user@example.com</span>
             </div>
           </button>
-          <ShellBtn
-            ariaLabel="Notifications"
-            IconRegular={MailInboxRegular}
-            IconActive={MailInboxFilled}
-            onClick={handleNotifications}
-          />
+          {!collapsed && (
+            <ShellBtn
+              ariaLabel="Notifications"
+              IconRegular={MailInboxRegular}
+              IconActive={MailInboxFilled}
+              onClick={handleNotifications}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -1,0 +1,32 @@
+.gateBadgeRadial {
+  border: var(--border-size-sm) solid;
+  border-radius: var(--border-radius-full);
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  flex-shrink: 0;
+}
+
+.gateBadgeRadial-g0 {
+  border-color: var(--color-g0);
+  background-color: var(--color-g0-bg);
+}
+
+.gateBadgeRadial-g1 {
+  border-color: var(--color-g1);
+  background-color: var(--color-g1-bg);
+}
+
+.gateBadgeRadial-g1_5 {
+  border-color: var(--color-g1_5);
+  background-color: var(--color-g1_5-bg);
+}
+
+.gateBadgeRadial-g2 {
+  border-color: var(--color-g2);
+  background-color: var(--color-g2-bg);
+}
+
+.gateBadgeRadial-g3 {
+  border-color: var(--color-g3);
+  background-color: var(--color-g3-bg);
+}

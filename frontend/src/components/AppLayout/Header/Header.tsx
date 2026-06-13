@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from "react";
 import { ShellBtn, HeaderBreadcrumbs } from "@components";
+import { useSidebar } from "@contexts";
 import {
   LayoutColumnOneThirdLeftRegular,
   LayoutColumnOneThirdLeftFilled,
@@ -11,13 +12,9 @@ import {
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
-  const [navPanelOpen, setNavPanelOpen] = useState(true);
+  const { collapsed, toggleCollapsed } = useSidebar();
   const [detailsPanelOpen, setDetailsPanelOpen] = useState(false);
 
-  const toggleNavPanel = useCallback(
-    () => setNavPanelOpen((prev) => !prev),
-    [],
-  );
   const toggleDetailsPanel = useCallback(
     () => setDetailsPanelOpen((prev) => !prev),
     [],
@@ -31,8 +28,8 @@ const Header: React.FC = () => {
           ariaLabel="Toggle navigation panel"
           IconRegular={LayoutColumnOneThirdLeftRegular}
           IconActive={LayoutColumnOneThirdLeftFilled}
-          onClick={toggleNavPanel}
-          active={navPanelOpen}
+          onClick={toggleCollapsed}
+          active={!collapsed}
         />
         <div className={styles.headerSeparator} />
         <HeaderBreadcrumbs />

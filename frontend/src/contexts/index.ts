@@ -1,1 +1,1 @@
-export {};
+export { SidebarProvider, useSidebar } from "./SidebarContext.js";

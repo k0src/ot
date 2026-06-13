@@ -5,14 +5,29 @@ import {
   SparkleRegular,
   SparkleFilled,
 } from "@fluentui/react-icons";
+import { useSidebar } from "@contexts";
 import styles from "./SidebarSearchBar.module.css";
 
 const SidebarSearchBar: React.FC = () => {
+  const { collapsed } = useSidebar();
   const [isSparkleActive, setIsSparkleActive] = useState(false);
 
   const handleSparkleClick = useCallback(() => {
     setIsSparkleActive((prev) => !prev);
   }, []);
+  const handleSearchClick = useCallback(() => {}, []);
+
+  if (collapsed) {
+    return (
+      <button
+        className={styles.searchBtn}
+        onClick={handleSearchClick}
+        aria-label="Search workspace"
+      >
+        <SearchRegular className={styles.searchBtnIcon} />
+      </button>
+    );
+  }
 
   return (
     <div className={styles.searchBar}>

@@ -125,6 +125,7 @@
     background-color var(--transition),
     color var(--transition);
   border-radius: var(--border-radius-md);
+  height: var(--size-xl);
 }
 
 .sidebarNavLink:hover,
@@ -193,7 +194,7 @@
   text-overflow: ellipsis;
 }
 
-.sidebarListMoreBtn {
+.sidebarListEditBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,11 +207,11 @@
   transition: color var(--transition);
 }
 
-.sidebarListMoreBtn:hover {
+.sidebarListEditBtn:hover:not(:disabled) {
   color: var(--color-gray-800);
 }
 
-.sidebarNavMoreBtn:disabled {
+.sidebarListEditBtn:disabled {
   opacity: var(--opacity-disabled);
   cursor: not-allowed;
 }
@@ -219,7 +220,6 @@
   display: flex;
   gap: var(--size-sm);
   align-items: center;
-  justify-content: space-between;
   cursor: pointer;
   padding: var(--size-sm);
   transition:
@@ -244,7 +244,7 @@
 }
 
 .sidebarLinkIcon {
-  font-size: var(--icon-size-xs);
+  font-size: var(--icon-size-sm);
   color: var(--color-gray-800) !important;
   flex-shrink: 0;
 }
@@ -327,4 +327,26 @@
 
 .sidebarUserBtn:hover:not(:disabled) .sidebarUserEmail {
   text-decoration-color: var(--color-gray-600);
+}
+
+.sidebarContainer.collapsed {
+  width: var(--size-3xl);
+  min-width: var(--size-3xl);
+  flex-shrink: 0;
+}
+
+.collapsed .sidebarTitleContainer,
+.collapsed .sidebarNavItemText,
+.collapsed .sidebarListItemText,
+.collapsed .sidebarLinkText,
+.collapsed .sidebarUserNameContainer,
+.collapsed .sidebarListEditBtn {
+  display: none;
+}
+
+.collapsed .sidebarHeader,
+.collapsed .sidebarNavItem,
+.collapsed .sidebarLink,
+.collapsed .sidebarUserBtn {
+  justify-content: center;
 }
