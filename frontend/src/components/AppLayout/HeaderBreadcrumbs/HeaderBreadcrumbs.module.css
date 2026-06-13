@@ -17,14 +17,14 @@
 }
 
 .breadcrumb {
-  color: var(--color-gray-700) !important;
+  color: var(--color-gray-600) !important;
   text-decoration: underline transparent !important;
   transition: text-decoration-color var(--transition);
 }
 
 .breadcrumb:hover {
   cursor: pointer;
-  text-decoration-color: var(--color-gray-700) !important;
+  text-decoration-color: var(--color-gray-600) !important;
 }
 
 .breadcrumbMain {
@@ -33,6 +33,6 @@
 
 .breadcrumbChevron {
   font-size: var(--icon-size-sm);
-  color: var(--color-gray-700);
+  color: var(--color-gray-600);
   flex-shrink: 0;
 }

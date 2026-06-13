@@ -10,7 +10,7 @@
   font-size: var(--icon-size-lg);
   border-radius: var(--border-radius-md);
   cursor: pointer;
-  color: var(--color-gray-700);
+  color: var(--color-gray-600);
   transition: background-color var(--transition);
 }
 

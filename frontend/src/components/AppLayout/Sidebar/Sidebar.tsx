@@ -23,6 +23,7 @@ import {
   SettingsFilled,
   MailInboxFilled,
   MoreHorizontalRegular,
+  ArrowUpRightRegular,
 } from "@fluentui/react-icons";
 import styles from "./Sidebar.module.css";
 import Logo from "@assets/logo-square-500.png";
@@ -221,22 +222,13 @@ const Sidebar: React.FC = () => {
                   <MoreHorizontalRegular />
                 </button>
               </NavLink>
-              <NavLink
-                to="/initiative/1234"
-                className={({ isActive }) =>
-                  isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-                }
+              <Link
+                to="/initiatives?filter=mine"
+                className={styles.sidebarLink}
               >
-                <div className={styles.sidebarNavItem}>
-                  <SidebarGateBadge gate={"g1"} />
-                  <span className={styles.sidebarListItemText}>
-                    Initiative Name
-                  </span>
-                </div>
-                <button className={styles.sidebarListMoreBtn}>
-                  <MoreHorizontalRegular />
-                </button>
-              </NavLink>
+                <span className={styles.sidebarLinkText}>View more</span>
+                <ArrowUpRightRegular className={styles.sidebarLinkIcon} />
+              </Link>
             </div>
           </div>
         </div>
