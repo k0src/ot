@@ -2,8 +2,6 @@
   "name": "@oti-workspace/backend",
   "version": "0.0.1",
   "private": true,
-  "description": "OTI workspace backend — Node.js, Express, Prisma, TypeScript",
-  "license": "UNLICENSED",
   "type": "module",
   "main": "dist/server.js",
   "engines": {

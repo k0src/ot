@@ -13,6 +13,7 @@ export default defineConfig({
       "@api": path.resolve(__dirname, "./src/api"),
       "@auth": path.resolve(__dirname, "./src/auth"),
       "@types": path.resolve(__dirname, "./src/types"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
   server: {

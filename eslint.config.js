@@ -8,6 +8,7 @@ import prettier from "eslint-config-prettier";
 export default defineConfig([
   {
     ignores: [
+      "*",
       "**/node_modules/**",
       "**/dist/**",
       "**/build/**",
