@@ -2,9 +2,12 @@ import { memo, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronRightRegular,
-  SearchRegular,
-  SparkleRegular,
-  SparkleFilled,
+  LayoutColumnOneThirdLeftRegular,
+  LayoutColumnOneThirdLeftFilled,
+  LayoutColumnOneThirdRightRegular,
+  LayoutColumnOneThirdRightFilled,
+  LinkSquareRegular,
+  LinkSquareFilled,
 } from "@fluentui/react-icons";
 import styles from "./Header.module.css";
 
@@ -13,29 +16,30 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.headerContainer}>
-      <div className={styles.breadcrumbsContainer}>
-        <NavLink to="/initatives" className={styles.breadcrumb}>
-          Initiatives
-        </NavLink>
-        <ChevronRightRegular className={styles.breadcrumbChevron} />
-        <span className={styles.breadcrumbMain}>Initiative Name</span>
+      <div className={styles.headerLeft}>
+        <button className={styles.headerBtn}>
+          <LayoutColumnOneThirdLeftRegular className={styles.iconRegular} />
+          <LayoutColumnOneThirdLeftFilled className={styles.iconActive} />
+        </button>
+        <div className={styles.headerSeparator} />
+        <div className={styles.breadcrumbsContainer}>
+          <NavLink to="/initatives" className={styles.breadcrumb}>
+            Initiatives
+          </NavLink>
+          <ChevronRightRegular className={styles.breadcrumbChevron} />
+          <span className={styles.breadcrumbMain}>Initiative Name</span>
+        </div>
       </div>
 
       <div className={styles.headerRight}>
-        <div className={styles.searchBar}>
-          <SearchRegular className={styles.searchBarIcon} />
-          <input
-            type="search"
-            className={styles.searchBarInput}
-            placeholder="Query Workspace..."
-          />
-        </div>
-        <button
-          className={styles.searchSparkleBtn}
-          onClick={handleSparkleClick}
-        >
-          <SparkleRegular className={styles.iconRegular} />
-          <SparkleFilled className={styles.iconActive} />
+        <button className={styles.headerBtn}>
+          <LinkSquareRegular className={styles.iconRegular} />
+          <LinkSquareFilled className={styles.iconActive} />
+        </button>
+        <div className={styles.headerSeparator} />
+        <button className={styles.headerBtn}>
+          <LayoutColumnOneThirdRightRegular className={styles.iconRegular} />
+          <LayoutColumnOneThirdRightFilled className={styles.iconActive} />
         </button>
       </div>
     </header>

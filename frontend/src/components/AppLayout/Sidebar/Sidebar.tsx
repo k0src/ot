@@ -1,10 +1,8 @@
-import { memo, useMemo } from "react";
+import { memo, useMemo, useCallback } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SidebarGateBadge } from "@components";
 import classNames from "classnames";
 import {
-  LayoutColumnOneThirdLeftRegular,
-  LayoutColumnOneThirdLeftFilled,
   AddRegular,
   BoardRegular,
   WindowBulletListRegular,
@@ -25,6 +23,9 @@ import {
   SettingsFilled,
   MailInboxFilled,
   MoreHorizontalRegular,
+  SearchRegular,
+  SparkleRegular,
+  SparkleFilled,
 } from "@fluentui/react-icons";
 import styles from "./Sidebar.module.css";
 import Logo from "@assets/logo-square-500.png";
@@ -73,6 +74,8 @@ const Sidebar: React.FC = () => {
     [],
   );
 
+  const handleSparkleClick = useCallback(() => {}, []);
+
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarTop}>
@@ -89,17 +92,30 @@ const Sidebar: React.FC = () => {
             </div>
           </div>
           <button className={styles.sidebarBtn}>
-            <LayoutColumnOneThirdLeftRegular className={styles.iconRegular} />
-            <LayoutColumnOneThirdLeftFilled className={styles.iconActive} />
+            <AddRegular className={styles.iconRegular} />
+            <AddRegular className={styles.iconActive} />
           </button>
         </div>
 
         <div className={styles.sidebarNavContainer}>
           <div className={styles.sidebarNavSection}>
-            <button className={styles.sidebarNewBtn}>
-              <AddRegular className={styles.sidebarNewIcon} />
-              <span className={styles.sidebarNewText}>New initiative</span>
-            </button>
+            <div className={styles.searchBar}>
+              <SearchRegular className={styles.searchBarIcon} />
+              <input
+                type="search"
+                className={styles.searchBarInput}
+                placeholder="Find in workspace..."
+              />
+              <button
+                className={styles.sparkleBtn}
+                onClick={handleSparkleClick}
+              >
+                <SparkleRegular className={styles.iconRegular} />
+                <SparkleFilled className={styles.iconActive} />
+              </button>
+            </div>
+            <div className={styles.sidebarSeparator} />
+            <span className={styles.sidebarNavSectionTitle}>Workspace</span>
             <div className={styles.sidebarNav}>
               {navItems.map(({ to, label, Icon, IconActive }) => (
                 <NavLink
