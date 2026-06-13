@@ -1,0 +1,71 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--size-xs);
+  width: var(--searchbar-width);
+  height: var(--searchbar-height);
+  padding: 0 var(--size-sm);
+  background-color: var(--color-cool-gray-50);
+  border: var(--border-size-sm) solid var(--color-cool-gray-200);
+  border-radius: var(--border-radius-md);
+  transition: border-color var(--transition);
+}
+
+.searchBar:focus-within {
+  border-color: var(--color-cool-gray-300);
+}
+
+.searchBarIcon {
+  flex-shrink: 0;
+  font-size: var(--icon-size-sm);
+  color: var(--color-gray-500);
+}
+
+.searchBarInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-base);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-900);
+}
+
+.searchBarInput::placeholder {
+  color: var(--color-gray-500);
+}
+
+.sparkleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-lg);
+  height: var(--size-lg);
+  flex-shrink: 0;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  color: var(--color-gray-500);
+  transition: background-color var(--transition);
+  font-size: var(--icon-size-sm);
+  background: none;
+  border: none;
+}
+
+.sparkleBtn:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+.sparkleBtn:hover:not(.btnActive) .iconRegular,
+.sparkleBtn.btnActive .iconRegular {
+  display: none !important;
+}
+
+.sparkleBtn:hover:not(.btnActive) .iconActive,
+.sparkleBtn.btnActive .iconActive {
+  display: block !important;
+}
+
+.iconActive {
+  display: none !important;
+}

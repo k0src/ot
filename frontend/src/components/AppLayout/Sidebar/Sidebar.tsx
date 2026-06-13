@@ -1,6 +1,6 @@
-import { memo, useMemo, useCallback, useState } from "react";
+import { memo, useMemo } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { SidebarGateBadge } from "@components";
+import { SidebarGateBadge, SidebarSearchBar } from "@components";
 import classNames from "classnames";
 import {
   AddRegular,
@@ -23,9 +23,6 @@ import {
   SettingsFilled,
   MailInboxFilled,
   MoreHorizontalRegular,
-  SearchRegular,
-  SparkleRegular,
-  SparkleFilled,
 } from "@fluentui/react-icons";
 import styles from "./Sidebar.module.css";
 import Logo from "@assets/logo-square-500.png";
@@ -74,12 +71,6 @@ const Sidebar: React.FC = () => {
     [],
   );
 
-  const [isSparkleActive, setIsSparkleActive] = useState(false);
-
-  const handleSparkleClick = useCallback(() => {
-    setIsSparkleActive((prev) => !prev);
-  }, []);
-
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarTop}>
@@ -103,23 +94,7 @@ const Sidebar: React.FC = () => {
 
         <div className={styles.sidebarNavContainer}>
           <div className={styles.sidebarNavSection}>
-            <div className={styles.searchBar}>
-              <SearchRegular className={styles.searchBarIcon} />
-              <input
-                type="search"
-                className={styles.searchBarInput}
-                placeholder="Find in workspace..."
-              />
-              <button
-                className={`${styles.sparkleBtn} ${
-                  isSparkleActive ? styles.btnActive : ""
-                }`}
-                onClick={handleSparkleClick}
-              >
-                <SparkleRegular className={styles.iconRegular} />
-                <SparkleFilled className={styles.iconActive} />
-              </button>
-            </div>
+            <SidebarSearchBar />
             <div className={styles.sidebarSeparator} />
             <span className={styles.sidebarNavSectionTitle}>Workspace</span>
             <div className={styles.sidebarNav}>
