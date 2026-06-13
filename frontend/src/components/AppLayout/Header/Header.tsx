@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronRightRegular,
@@ -12,8 +12,6 @@ import {
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
-  const handleSparkleClick = useCallback(() => {}, []);
-
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerLeft}>
