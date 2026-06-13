@@ -86,7 +86,7 @@
 
 .searchBarIcon {
   flex-shrink: 0;
-  font-size: var(--icon-size-md);
+  font-size: var(--icon-size-sm);
   color: var(--color-gray-500);
 }
 
@@ -96,7 +96,7 @@
   border: none;
   background: none;
   font-family: var(--font-base);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-gray-900);
 }
 
