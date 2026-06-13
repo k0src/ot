@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 
 import styles from "./AppLayout.module.css";
@@ -24,7 +24,6 @@ import {
   ChartMultipleRegular,
   SettingsRegular,
   MailInboxRegular,
-  AddFilled,
   BoardFilled,
   WindowBulletListFilled,
   ArchiveFilled,
@@ -35,9 +34,56 @@ import {
   SettingsFilled,
   MailInboxFilled,
   MoreHorizontalRegular,
+  SearchRegular,
+  SparkleRegular,
+  SparkleFilled,
 } from "@fluentui/react-icons";
 
 const AppLayout: React.FC = () => {
+  const handleSparkleClick = useCallback(() => {}, []);
+
+  const navItems = useMemo(
+    () => [
+      {
+        to: "/",
+        label: "Dashboard",
+        Icon: BoardRegular,
+        IconActive: BoardFilled,
+      },
+      {
+        to: "/initiatives",
+        label: "Initiatives",
+        Icon: WindowBulletListRegular,
+        IconActive: WindowBulletListFilled,
+      },
+      {
+        to: "/archive",
+        label: "Archive",
+        Icon: ArchiveRegular,
+        IconActive: ArchiveFilled,
+      },
+      {
+        to: "/gaps",
+        label: "Open Gaps",
+        Icon: TaskListLtrRegular,
+        IconActive: TaskListLtrFilled,
+      },
+      {
+        to: "/gaps",
+        label: "Top Risks",
+        Icon: WarningRegular,
+        IconActive: WarningFilled,
+      },
+      {
+        to: "/analytics",
+        label: "Analytics",
+        Icon: ChartMultipleRegular,
+        IconActive: ChartMultipleFilled,
+      },
+    ],
+    [],
+  );
+
   return (
     <div className={styles.layoutContainer}>
       <div className={styles.sidebarContainer}>
@@ -55,7 +101,8 @@ const AppLayout: React.FC = () => {
               </div>
             </div>
             <button className={styles.sidebarBtn}>
-              <LayoutColumnOneThirdLeftRegular />
+              <LayoutColumnOneThirdLeftRegular className={styles.iconRegular} />
+              <LayoutColumnOneThirdLeftFilled className={styles.iconActive} />
             </button>
           </div>
 
@@ -66,94 +113,46 @@ const AppLayout: React.FC = () => {
                 <span className={styles.sidebarNewText}>New initiative</span>
               </button>
               <div className={styles.sidebarNav}>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <BoardRegular className={styles.sidebarNavItemIcon} />
-                    <span className={styles.sidebarNavItemText}>Dashboard</span>
-                  </div>
-                </NavLink>
-                <NavLink
-                  to="/initiatives"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <WindowBulletListRegular
-                      className={styles.sidebarNavItemIcon}
-                    />
-                    <span className={styles.sidebarNavItemText}>
-                      Initiatives
-                    </span>
-                  </div>
-                </NavLink>
-                <NavLink
-                  to="/archive"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <ArchiveRegular className={styles.sidebarNavItemIcon} />
-                    <span className={styles.sidebarNavItemText}>Archive</span>
-                  </div>
-                </NavLink>
-                <NavLink
-                  to="/gaps"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <TaskListLtrRegular className={styles.sidebarNavItemIcon} />
-                    <span className={styles.sidebarNavItemText}>Open Gaps</span>
-                  </div>
-                </NavLink>
-                <NavLink
-                  to="/gaps"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <WarningRegular className={styles.sidebarNavItemIcon} />
-                    <span className={styles.sidebarNavItemText}>Top Risks</span>
-                  </div>
-                </NavLink>
-                <NavLink
-                  to="/analytics"
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <ChartMultipleRegular
-                      className={styles.sidebarNavItemIcon}
-                    />
-                    <span className={styles.sidebarNavItemText}>Analytics</span>
-                  </div>
-                </NavLink>
+                {navItems.map(({ to, label, Icon, IconActive }) => (
+                  <NavLink
+                    key={label}
+                    to={to}
+                    className={({ isActive }) =>
+                      isActive
+                        ? styles.sidebarNavLinkActive
+                        : styles.sidebarNavLink
+                    }
+                  >
+                    <div className={styles.sidebarNavItem}>
+                      <Icon
+                        className={classNames(
+                          styles.sidebarNavItemIcon,
+                          styles.iconRegular,
+                        )}
+                      />
+                      <IconActive
+                        className={classNames(
+                          styles.sidebarNavItemIcon,
+                          styles.iconActive,
+                        )}
+                      />
+                      <span className={styles.sidebarNavItemText}>{label}</span>
+                    </div>
+                  </NavLink>
+                ))}
                 <Link to="ado" className={styles.sidebarNavLink}>
                   <div className={styles.sidebarNavItem}>
                     <ArrowSquareUpRightRegular
-                      className={styles.sidebarNavItemIcon}
+                      className={classNames(
+                        styles.sidebarNavItemIcon,
+                        styles.iconRegular,
+                      )}
+                    />
+                    <ArrowSquareUpRightFilled
+                      className={classNames(
+                        styles.sidebarNavItemIcon,
+                        styles.iconActive,
+                      )}
                     />
                     <span className={styles.sidebarNavItemText}>
                       Azure DevOps
@@ -272,7 +271,18 @@ const AppLayout: React.FC = () => {
               }
             >
               <div className={styles.sidebarNavItem}>
-                <SettingsRegular className={styles.sidebarNavItemIcon} />
+                <SettingsRegular
+                  className={classNames(
+                    styles.sidebarNavItemIcon,
+                    styles.iconRegular,
+                  )}
+                />
+                <SettingsFilled
+                  className={classNames(
+                    styles.sidebarNavItemIcon,
+                    styles.iconActive,
+                  )}
+                />
                 <span className={styles.sidebarNavItemText}>Settings</span>
               </div>
             </NavLink>
@@ -292,7 +302,8 @@ const AppLayout: React.FC = () => {
               </div>
             </button>
             <button className={styles.sidebarBtn}>
-              <MailInboxRegular />
+              <MailInboxRegular className={styles.iconRegular} />
+              <MailInboxFilled className={styles.iconActive} />
             </button>
           </div>
         </div>
@@ -309,8 +320,21 @@ const AppLayout: React.FC = () => {
           </div>
 
           <div className={styles.headerRight}>
-            {/* search bar */}
-            <div className={styles.searchBarTest} />
+            <div className={styles.searchBar}>
+              <SearchRegular className={styles.searchBarIcon} />
+              <input
+                type="search"
+                className={styles.searchBarInput}
+                placeholder="Query Workspace..."
+              />
+            </div>
+            <button
+              className={styles.searchSparkleBtn}
+              onClick={handleSparkleClick}
+            >
+              <SparkleRegular className={styles.iconRegular} />
+              <SparkleFilled className={styles.iconActive} />
+            </button>
           </div>
         </header>
 
