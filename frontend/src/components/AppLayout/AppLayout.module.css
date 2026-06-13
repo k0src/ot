@@ -319,8 +319,7 @@
   color: var(--color-blue-dark) !important;
 }
 
-.sidebarNavItem,
-.sidebarListItem {
+.sidebarNavItem {
   display: flex;
   gap: var(--size-sm);
   align-items: center;

@@ -175,7 +175,7 @@ const AppLayout: React.FC = () => {
                       : styles.sidebarNavLink
                   }
                 >
-                  <div className={styles.sidebarListItem}>
+                  <div className={styles.sidebarNavItem}>
                     <SidebarGateBadge gate={"g0"} />
                     <span className={styles.sidebarListItemText}>
                       Initiative Name
@@ -193,7 +193,7 @@ const AppLayout: React.FC = () => {
                       : styles.sidebarNavLink
                   }
                 >
-                  <div className={styles.sidebarListItem}>
+                  <div className={styles.sidebarNavItem}>
                     <SidebarGateBadge gate={"g1.5"} />
                     <span className={styles.sidebarListItemText}>
                       Initiative Name
@@ -211,7 +211,7 @@ const AppLayout: React.FC = () => {
                       : styles.sidebarNavLink
                   }
                 >
-                  <div className={styles.sidebarListItem}>
+                  <div className={styles.sidebarNavItem}>
                     <SidebarGateBadge gate={"g2"} />
                     <span className={styles.sidebarListItemText}>
                       Initiative Name
@@ -229,7 +229,7 @@ const AppLayout: React.FC = () => {
                       : styles.sidebarNavLink
                   }
                 >
-                  <div className={styles.sidebarListItem}>
+                  <div className={styles.sidebarNavItem}>
                     <SidebarGateBadge gate={"g3"} />
                     <span className={styles.sidebarListItemText}>
                       Initiative Name
@@ -247,7 +247,7 @@ const AppLayout: React.FC = () => {
                       : styles.sidebarNavLink
                   }
                 >
-                  <div className={styles.sidebarListItem}>
+                  <div className={styles.sidebarNavItem}>
                     <SidebarGateBadge gate={"g1"} />
                     <span className={styles.sidebarListItemText}>
                       Initiative Name
