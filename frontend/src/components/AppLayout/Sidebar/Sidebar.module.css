@@ -136,7 +136,7 @@
   align-items: center;
   gap: var(--size-xs);
   width: var(--searchbar-width);
-  height: 3.6rem;
+  height: var(--searchbar-height);
   padding: 0 var(--size-sm);
   background-color: var(--color-cool-gray-50);
   border: var(--border-size-sm) solid var(--color-cool-gray-200);
