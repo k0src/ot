@@ -72,7 +72,6 @@
   background-color: red;
 }
 
-.headerBtn,
 .sidebarBtn {
   display: flex;
   align-items: center;
@@ -89,12 +88,10 @@
   transition: background-color var(--transition);
 }
 
-.headerBtn:hover:not(:disabled),
 .sidebarBtn:hover:not(:disabled) {
   background-color: var(--color-cool-gray-50);
 }
 
-.headerBtn:disabled,
 .sidebarBtn:disabled {
   opacity: var(--opacity-disabled);
   cursor: not-allowed;
