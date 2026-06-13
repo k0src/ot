@@ -3,11 +3,10 @@
   font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  padding: var(--size-3xs) 0;
   border: var(--border-size-sm) solid;
   border-radius: var(--border-radius-sm);
-  width: var(--size-xl);
-  letter-spacing: var(--letter-spacing-sm);
+  width: var(--badge-width-sm);
+  height: var(--badge-height-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,12 +17,14 @@
   color: var(--color-g0);
   border-color: var(--color-g0);
   background-color: var(--color-g0-bg);
+  letter-spacing: var(--letter-spacing-lg);
 }
 
 .sidebarGateBadge-g1 {
   color: var(--color-g1);
   border-color: var(--color-g1);
   background-color: var(--color-g1-bg);
+  letter-spacing: var(--letter-spacing-lg);
 }
 
 .sidebarGateBadge-g1_5 {
@@ -36,10 +37,12 @@
   color: var(--color-g2);
   border-color: var(--color-g2);
   background-color: var(--color-g2-bg);
+  letter-spacing: var(--letter-spacing-lg);
 }
 
 .sidebarGateBadge-g3 {
   color: var(--color-g3);
   border-color: var(--color-g3);
   background-color: var(--color-g3-bg);
+  letter-spacing: var(--letter-spacing-lg);
 }
