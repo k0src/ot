@@ -189,11 +189,13 @@
   cursor: not-allowed;
 }
 
-.sparkleBtn:hover .iconRegular {
+.sparkleBtn:hover:not(.btnActive) .iconRegular,
+.sparkleBtn.btnActive .iconRegular {
   display: none !important;
 }
 
-.sparkleBtn:hover .iconActive {
+.sparkleBtn:hover:not(.btnActive) .iconActive,
+.sparkleBtn.btnActive .iconActive {
   display: block !important;
 }
 

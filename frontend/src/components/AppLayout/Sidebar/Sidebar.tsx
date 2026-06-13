@@ -1,4 +1,4 @@
-import { memo, useMemo, useCallback } from "react";
+import { memo, useMemo, useCallback, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SidebarGateBadge } from "@components";
 import classNames from "classnames";
@@ -74,7 +74,11 @@ const Sidebar: React.FC = () => {
     [],
   );
 
-  const handleSparkleClick = useCallback(() => {}, []);
+  const [isSparkleActive, setIsSparkleActive] = useState(false);
+
+  const handleSparkleClick = useCallback(() => {
+    setIsSparkleActive((prev) => !prev);
+  }, []);
 
   return (
     <div className={styles.sidebarContainer}>
@@ -107,7 +111,9 @@ const Sidebar: React.FC = () => {
                 placeholder="Find in workspace..."
               />
               <button
-                className={styles.sparkleBtn}
+                className={`${styles.sparkleBtn} ${
+                  isSparkleActive ? styles.btnActive : ""
+                }`}
                 onClick={handleSparkleClick}
               >
                 <SparkleRegular className={styles.iconRegular} />
