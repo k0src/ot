@@ -8,6 +8,7 @@
     background-color var(--transition),
     color var(--transition);
   border-radius: var(--border-radius-md);
+  height: var(--size-xl);
 }
 
 .sidebarOverflowLink:hover {
