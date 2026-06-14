@@ -31,8 +31,6 @@
   flex-shrink: 0;
 }
 
-/* collapsed (icon rail) */
-
 .collapsed {
   justify-content: center;
 }

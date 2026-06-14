@@ -39,7 +39,8 @@ const SidebarInitiativeLink: React.FC<SidebarInitiativeLinkProps> = ({
         </span>
       </div>
       <button className={styles.sidebarInitiativeLinkEditBtn}>
-        <EditRegular />
+        <EditRegular className={styles.iconRegular} />
+        <EditFilled className={styles.iconActive} />
       </button>
     </NavLink>
   );

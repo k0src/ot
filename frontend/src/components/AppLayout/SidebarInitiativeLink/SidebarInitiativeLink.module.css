@@ -63,7 +63,17 @@
   cursor: not-allowed;
 }
 
-/* collapsed (icon rail) */
+.sidebarInitiativeLinkEditBtn:hover .iconRegular {
+  display: none !important;
+}
+
+.sidebarInitiativeLinkEditBtn:hover .iconActive {
+  display: block !important;
+}
+
+.iconActive {
+  display: none !important;
+}
 
 .collapsed .sidebarInitiativeLinkText,
 .collapsed .sidebarInitiativeLinkEditBtn {
