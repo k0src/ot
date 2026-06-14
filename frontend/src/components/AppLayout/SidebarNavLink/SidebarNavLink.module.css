@@ -60,10 +60,10 @@
   display: none !important;
 }
 
-.collasped .sidebarNavLinkText {
-  display: none;
+.collapsed {
+  justify-content: center;
 }
 
-.collasped .sidebarNavLink {
-  justify-content: center;
+.collapsed .sidebarNavLinkText {
+  display: none;
 }

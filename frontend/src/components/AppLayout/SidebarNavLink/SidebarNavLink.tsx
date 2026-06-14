@@ -2,6 +2,7 @@ import { memo, useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import { FluentIcon } from "@fluentui/react-icons";
 import classNames from "classnames";
+import { useSidebar } from "@contexts";
 import styles from "./SidebarNavLink.module.css";
 
 export interface SidebarNavLinkProps {
@@ -19,6 +20,8 @@ const SidebarNavLink: React.FC<SidebarNavLinkProps> = ({
   IconActive,
   externalLink,
 }) => {
+  const { collapsed } = useSidebar();
+
   const navLinkContent = useMemo(
     () => (
       <>
@@ -40,7 +43,9 @@ const SidebarNavLink: React.FC<SidebarNavLinkProps> = ({
         href={to}
         target="_blank"
         rel="noopener noreferrer"
-        className={styles.sidebarNavLink}
+        className={classNames(styles.sidebarNavLink, {
+          [styles.collapsed]: collapsed,
+        })}
       >
         {navLinkContent}
       </a>
@@ -51,7 +56,12 @@ const SidebarNavLink: React.FC<SidebarNavLinkProps> = ({
     <NavLink
       to={to}
       className={({ isActive }) =>
-        isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
+        classNames(
+          isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink,
+          {
+            [styles.collapsed]: collapsed,
+          },
+        )
       }
     >
       {navLinkContent}

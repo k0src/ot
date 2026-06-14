@@ -204,27 +204,7 @@
   display: none;
 }
 
-.collapsed .sidebarInitiativeLinkEditBtn,
-.collapsed .sidebarInitiativeLinkText {
-  display: none;
-}
-.collapsed .sidebarOverflowLinkText {
-  display: none;
-}
-
-.collasped .sidebarNavLinkText {
-  display: none;
-}
-
 .collapsed .sidebarHeader,
 .collapsed .sidebarUserBtn {
-  justify-content: center;
-}
-
-.collapsed .sidebarOverflowLink {
-  justify-content: center;
-}
-
-.collasped .sidebarNavLink {
   justify-content: center;
 }

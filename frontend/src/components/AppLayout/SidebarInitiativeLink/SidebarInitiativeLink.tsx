@@ -1,6 +1,8 @@
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
+import classNames from "classnames";
 import { GateBadgeRadial } from "@components";
+import { useSidebar } from "@contexts";
 import type { InitiativeGate } from "@types";
 import { EditRegular, EditFilled } from "@fluentui/react-icons";
 import styles from "./SidebarInitiativeLink.module.css";
@@ -16,13 +18,18 @@ const SidebarInitiativeLink: React.FC<SidebarInitiativeLinkProps> = ({
   initiativeName,
   initiativeGate,
 }) => {
+  const { collapsed } = useSidebar();
+
   return (
     <NavLink
       to={`/initiatives/${initiativeId}`}
       className={({ isActive }) =>
-        isActive
-          ? styles.sidebarInitiativeLinkActive
-          : styles.sidebarInitiativeLink
+        classNames(
+          isActive
+            ? styles.sidebarInitiativeLinkActive
+            : styles.sidebarInitiativeLink,
+          { [styles.collapsed]: collapsed },
+        )
       }
     >
       <div className={styles.sidebarInitiativeLinkLeft}>

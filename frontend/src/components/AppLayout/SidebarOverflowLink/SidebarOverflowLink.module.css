@@ -30,3 +30,13 @@
   color: var(--color-gray-800) !important;
   flex-shrink: 0;
 }
+
+/* collapsed (icon rail) */
+
+.collapsed {
+  justify-content: center;
+}
+
+.collapsed .sidebarOverflowLinkText {
+  display: none;
+}
