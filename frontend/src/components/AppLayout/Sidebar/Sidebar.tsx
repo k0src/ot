@@ -1,6 +1,11 @@
 import { memo, useCallback, useMemo } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { ShellBtn, GateBadgeRadial, SidebarSearchBar } from "@components";
+import {
+  ShellBtn,
+  SidebarSearchBar,
+  SidebarNavLink,
+  SidebarInitiativeLink,
+  SidebarOverflowLink,
+} from "@components";
 import { useSidebar } from "@contexts";
 import classNames from "classnames";
 import {
@@ -23,8 +28,6 @@ import {
   ChartMultipleFilled,
   SettingsFilled,
   MailInboxFilled,
-  MoreHorizontalRegular,
-  EditRegular,
 } from "@fluentui/react-icons";
 import styles from "./Sidebar.module.css";
 import Logo from "@assets/logo-square-500.png";
@@ -71,6 +74,13 @@ const Sidebar: React.FC = () => {
         Icon: ChartMultipleRegular,
         IconActive: ChartMultipleFilled,
       },
+      {
+        to: "https://ado.com",
+        label: "Azure DevOps",
+        Icon: ArrowSquareUpRightRegular,
+        IconActive: ArrowSquareUpRightFilled,
+        externalLink: true,
+      },
     ],
     [],
   );
@@ -113,52 +123,16 @@ const Sidebar: React.FC = () => {
             <div className={styles.sidebarSeparator} />
             <span className={styles.sidebarNavSectionTitle}>Workspace</span>
             <div className={styles.sidebarNav}>
-              {navItems.map(({ to, label, Icon, IconActive }) => (
-                <NavLink
-                  key={label}
+              {navItems.map(({ to, label, Icon, IconActive, externalLink }) => (
+                <SidebarNavLink
+                  key={to}
                   to={to}
-                  className={({ isActive }) =>
-                    isActive
-                      ? styles.sidebarNavLinkActive
-                      : styles.sidebarNavLink
-                  }
-                >
-                  <div className={styles.sidebarNavItem}>
-                    <Icon
-                      className={classNames(
-                        styles.sidebarNavItemIcon,
-                        styles.iconRegular,
-                      )}
-                    />
-                    <IconActive
-                      className={classNames(
-                        styles.sidebarNavItemIcon,
-                        styles.iconActive,
-                      )}
-                    />
-                    <span className={styles.sidebarNavItemText}>{label}</span>
-                  </div>
-                </NavLink>
+                  label={label}
+                  Icon={Icon}
+                  IconActive={IconActive}
+                  externalLink={externalLink}
+                />
               ))}
-              <Link to="ado" className={styles.sidebarNavLink}>
-                <div className={styles.sidebarNavItem}>
-                  <ArrowSquareUpRightRegular
-                    className={classNames(
-                      styles.sidebarNavItemIcon,
-                      styles.iconRegular,
-                    )}
-                  />
-                  <ArrowSquareUpRightFilled
-                    className={classNames(
-                      styles.sidebarNavItemIcon,
-                      styles.iconActive,
-                    )}
-                  />
-                  <span className={styles.sidebarNavItemText}>
-                    Azure DevOps
-                  </span>
-                </div>
-              </Link>
             </div>
           </div>
 
@@ -167,77 +141,27 @@ const Sidebar: React.FC = () => {
               Active Initiatives
             </span>
             <div className={styles.sidebarNav}>
-              <NavLink
-                to="/initiative/1234"
-                className={({ isActive }) =>
-                  isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-                }
-              >
-                <div className={styles.sidebarNavItem}>
-                  <GateBadgeRadial gate={"g0"} />
-                  <span className={styles.sidebarListItemText}>
-                    Initiative Name
-                  </span>
-                </div>
-                <button className={styles.sidebarListEditBtn}>
-                  <EditRegular />
-                </button>
-              </NavLink>
-              <NavLink
-                to="/initiative/1234"
-                className={({ isActive }) =>
-                  isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-                }
-              >
-                <div className={styles.sidebarNavItem}>
-                  <GateBadgeRadial gate={"g1.5"} />
-                  <span className={styles.sidebarListItemText}>
-                    Initiative Name
-                  </span>
-                </div>
-                <button className={styles.sidebarListEditBtn}>
-                  <EditRegular />
-                </button>
-              </NavLink>
-              <NavLink
-                to="/initiative/1234"
-                className={({ isActive }) =>
-                  isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-                }
-              >
-                <div className={styles.sidebarNavItem}>
-                  <GateBadgeRadial gate={"g2"} />
-                  <span className={styles.sidebarListItemText}>
-                    Initiative Name
-                  </span>
-                </div>
-                <button className={styles.sidebarListEditBtn}>
-                  <EditRegular />
-                </button>
-              </NavLink>
-              <NavLink
-                to="/initiative/1234"
-                className={({ isActive }) =>
-                  isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-                }
-              >
-                <div className={styles.sidebarNavItem}>
-                  <GateBadgeRadial gate={"g3"} />
-                  <span className={styles.sidebarListItemText}>
-                    Initiative Name
-                  </span>
-                </div>
-                <button className={styles.sidebarListEditBtn}>
-                  <EditRegular />
-                </button>
-              </NavLink>
-              <Link
-                to="/initiatives?filter=mine"
-                className={styles.sidebarLink}
-              >
-                <MoreHorizontalRegular className={styles.sidebarLinkIcon} />
-                <span className={styles.sidebarLinkText}>View more</span>
-              </Link>
+              <SidebarInitiativeLink
+                initiativeId={"1234"}
+                initiativeName={"Initiative Name"}
+                initiativeGate={"g0"}
+              />
+              <SidebarInitiativeLink
+                initiativeId={"1234"}
+                initiativeName={"Initiative Name"}
+                initiativeGate={"g1.5"}
+              />
+              <SidebarInitiativeLink
+                initiativeId={"1234"}
+                initiativeName={"Initiative Name"}
+                initiativeGate={"g2"}
+              />
+              <SidebarInitiativeLink
+                initiativeId={"1234"}
+                initiativeName={"Initiative Name"}
+                initiativeGate={"g3"}
+              />
+              <SidebarOverflowLink to="/initiatives?filter=mine" />
             </div>
           </div>
         </div>
@@ -245,28 +169,12 @@ const Sidebar: React.FC = () => {
 
       <div className={styles.sidebarBottom}>
         <div className={styles.sidebarNavSection}>
-          <NavLink
+          <SidebarNavLink
             to="/settings"
-            className={({ isActive }) =>
-              isActive ? styles.sidebarNavLinkActive : styles.sidebarNavLink
-            }
-          >
-            <div className={styles.sidebarNavItem}>
-              <SettingsRegular
-                className={classNames(
-                  styles.sidebarNavItemIcon,
-                  styles.iconRegular,
-                )}
-              />
-              <SettingsFilled
-                className={classNames(
-                  styles.sidebarNavItemIcon,
-                  styles.iconActive,
-                )}
-              />
-              <span className={styles.sidebarNavItemText}>Settings</span>
-            </div>
-          </NavLink>
+            label="Settings"
+            Icon={SettingsRegular}
+            IconActive={SettingsFilled}
+          />
         </div>
         <div className={styles.sidebarFooter}>
           <button className={styles.sidebarUserBtn}>

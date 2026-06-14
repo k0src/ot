@@ -22,6 +22,7 @@
 .shellBtn:hover:not(:disabled):not(.btnActive),
 .shellBtn.btnActive {
   background-color: var(--color-cool-gray-50);
+  color: var(--color-gray-800);
 }
 
 .shellBtn:hover:not(:disabled):not(.btnActive) .iconRegular,

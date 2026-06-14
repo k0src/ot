@@ -1,0 +1,64 @@
+.sidebarInitiativeLink,
+.sidebarInitiativeLinkActive {
+  display: flex;
+  gap: var(--size-sm);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--size-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+  border-radius: var(--border-radius-md);
+  height: var(--size-xl);
+}
+
+.sidebarInitiativeLink:hover,
+.sidebarInitiativeLinkActive {
+  background-color: var(--color-cool-gray-50);
+}
+
+.sidebarInitiativeLinkActive .sidebarInitiativeLinkText {
+  color: var(--color-blue-dark) !important;
+}
+
+.sidebarInitiativeLinkLeft {
+  display: flex;
+  gap: var(--size-sm);
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebarInitiativeLinkText {
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-800) !important;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarInitiativeLinkEditBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: var(--icon-size-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray-600);
+  transition: color var(--transition);
+}
+
+.sidebarInitiativeLinkEditBtn:hover:not(:disabled) {
+  color: var(--color-gray-800);
+}
+
+.sidebarInitiativeLinkEditBtn:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}

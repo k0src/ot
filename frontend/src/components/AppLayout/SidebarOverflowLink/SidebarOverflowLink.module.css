@@ -1,0 +1,32 @@
+.sidebarOverflowLink {
+  display: flex;
+  gap: var(--size-sm);
+  align-items: center;
+  cursor: pointer;
+  padding: var(--size-sm);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+  border-radius: var(--border-radius-md);
+}
+
+.sidebarOverflowLink:hover {
+  background-color: var(--color-cool-gray-50);
+}
+
+.sidebarOverflowLinkText {
+  font-family: var(--font-base);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-800) !important;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarOverflowLinkIcon {
+  font-size: var(--icon-size-sm);
+  color: var(--color-gray-800) !important;
+  flex-shrink: 0;
+}
